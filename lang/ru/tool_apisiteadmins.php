@@ -17,9 +17,9 @@
 /**
  * Strings for component 'tool_apisiteadmins', language 'ru'.
  *
- * @package   tool_apisiteadmins
- * @copyright 2018 "Valentin Popov" <info@valentineus.link>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright   2018 "Valentin Popov" <info@valentineus.link>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     tool_apisiteadmins
  */
 
 $string["pluginname"] = "Расширенный API управления администраторами";

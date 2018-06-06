@@ -17,9 +17,9 @@
 /**
  * Information about the version of the plugin.
  *
- * @package   tool_apisiteadmins
- * @copyright 2018 "Valentin Popov" <info@valentineus.link>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright   2018 "Valentin Popov" <info@valentineus.link>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     tool_apisiteadmins
  */
 
 defined("MOODLE_INTERNAL") || die();
