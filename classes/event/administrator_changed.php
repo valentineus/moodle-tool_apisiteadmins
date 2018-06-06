@@ -47,7 +47,7 @@ class administrator_changed extends \core\event\base {
      * Return localised event name.
      */
     public static function get_name() {
-        return new \lang_string("update", "moodle");
+        return new \lang_string("sitelogs", "moodle");
     }
 
     /**
