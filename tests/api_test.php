@@ -24,11 +24,14 @@
 
 defined("MOODLE_INTERNAL") || die();
 
+global $CFG;
+
 require_once(__DIR__ . "/../lib.php");
 
 /**
  * Test 'tool_apisiteadmins' class.
  *
+ * @category    phpunit
  * @group       tool_apisiteadmins
  * @copyright   2018 "Valentin Popov" <info@valentineus.link>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -36,8 +39,6 @@ require_once(__DIR__ . "/../lib.php");
  */
 class tool_apisiteadmins_api_testcase extends advanced_testcase {
     public function test_adding_and_deleting_administrator() {
-        global $CFG;
-
         $this->resetAfterTest(true);
 
         $user = $this->getDataGenerator()->create_user();
@@ -67,8 +68,6 @@ class tool_apisiteadmins_api_testcase extends advanced_testcase {
      * @depends test_adding_and_deleting_administrator
      */
     public function test_changing_main_administrator() {
-        global $CFG;
-
         $this->resetAfterTest(true);
 
         $user1 = $this->getDataGenerator()->create_user();
@@ -79,15 +78,14 @@ class tool_apisiteadmins_api_testcase extends advanced_testcase {
         tool_apisiteadmins::add_user($user2->id);
         $this->assertArrayHasKey($user1->id, get_admins());
         $this->assertArrayHasKey($user2->id, get_admins());
+        $this->assertCount(3, get_admins());
 
         /* Sets first user main */
         tool_apisiteadmins::set_main($user1->id);
-        $this->assertCount(3, get_admins());
         $this->assertEquals($user1, get_admin());
 
         /* Sets second user main */
         tool_apisiteadmins::set_main($user2->id);
-        $this->assertCount(3, get_admins());
         $this->assertEquals($user2, get_admin());
     }
 
@@ -95,8 +93,6 @@ class tool_apisiteadmins_api_testcase extends advanced_testcase {
      * @depends test_adding_and_deleting_administrator
      */
     public function test_deleting_all_administrators() {
-        global $CFG;
-
         $this->resetAfterTest(true);
 
         $this->assertCount(1, get_admins());
@@ -112,8 +108,6 @@ class tool_apisiteadmins_api_testcase extends advanced_testcase {
      * @depends test_adding_and_deleting_administrator
      */
     public function test_exception_adding_check() {
-        global $CFG;
-
         $this->expectException(moodle_exception::class);
         $this->resetAfterTest(true);
 
@@ -127,8 +121,6 @@ class tool_apisiteadmins_api_testcase extends advanced_testcase {
      * @depends test_adding_and_deleting_administrator
      */
     public function test_exception_removal_check() {
-        global $CFG;
-
         $this->expectException(moodle_exception::class);
         $this->resetAfterTest(true);
 
