@@ -66,6 +66,34 @@ class tool_apisiteadmins_api_testcase extends advanced_testcase {
     /**
      * @depends test_adding_and_deleting_administrator
      */
+    public function test_changing_main_administrator() {
+        global $CFG;
+
+        $this->resetAfterTest(true);
+
+        $user1 = $this->getDataGenerator()->create_user();
+        $user2 = $this->getDataGenerator()->create_user();
+
+        /* Adds users to the list */
+        tool_apisiteadmins::add_user($user1->id);
+        tool_apisiteadmins::add_user($user2->id);
+        $this->assertArrayHasKey($user1->id, get_admins());
+        $this->assertArrayHasKey($user2->id, get_admins());
+
+        /* Sets first user main */
+        tool_apisiteadmins::set_main($user1->id);
+        $this->assertCount(3, get_admins());
+        $this->assertEquals($user1, get_admin());
+
+        /* Sets second user main */
+        tool_apisiteadmins::set_main($user2->id);
+        $this->assertCount(3, get_admins());
+        $this->assertEquals($user2, get_admin());
+    }
+
+    /**
+     * @depends test_adding_and_deleting_administrator
+     */
     public function test_exception_adding_check() {
         global $CFG;
 
@@ -91,35 +119,5 @@ class tool_apisiteadmins_api_testcase extends advanced_testcase {
 
         /* Removes a non-existent user */
         tool_apisiteadmins::remove_user($userid);
-    }
-
-    /**
-     * @depends test_adding_and_deleting_administrator
-     * @depends test_exception_adding_check
-     * @depends test_exception_removal_check
-     */
-    public function test_changing_main_administrator() {
-        global $CFG;
-
-        $this->resetAfterTest(true);
-
-        $user1 = $this->getDataGenerator()->create_user();
-        $user2 = $this->getDataGenerator()->create_user();
-
-        /* Adds users to the list */
-        tool_apisiteadmins::add_user($user1->id);
-        tool_apisiteadmins::add_user($user2->id);
-        $this->assertArrayHasKey($user1->id, get_admins());
-        $this->assertArrayHasKey($user2->id, get_admins());
-
-        /* Sets first user main */
-        tool_apisiteadmins::set_main($user1->id);
-        $this->assertCount(3, get_admins());
-        $this->assertEquals($user1, get_admin());
-
-        /* Sets second user main */
-        tool_apisiteadmins::set_main($user2->id);
-        $this->assertCount(3, get_admins());
-        $this->assertEquals($user2, get_admin());
     }
 }
