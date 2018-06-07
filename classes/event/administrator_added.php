@@ -38,7 +38,7 @@ class administrator_added extends \core\event\base {
      * Init method.
      */
     protected function init() {
-        $this->data["crud"] = "r";
+        $this->data["crud"] = "c";
         $this->data["edulevel"] = self::LEVEL_OTHER;
         $this->context = \context_system::instance();
     }
