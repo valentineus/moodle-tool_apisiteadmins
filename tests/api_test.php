@@ -94,6 +94,23 @@ class tool_apisiteadmins_api_testcase extends advanced_testcase {
     /**
      * @depends test_adding_and_deleting_administrator
      */
+    public function test_deleting_all_administrators() {
+        global $CFG;
+
+        $this->resetAfterTest(true);
+
+        $this->assertCount(1, get_admins());
+        $user = get_admin();
+
+        /* Removes a single administrator */
+        tool_apisiteadmins::remove_user($user->id);
+        $this->assertCount(1, get_admins());
+        $this->assertEquals($user, get_admin());
+    }
+
+    /**
+     * @depends test_adding_and_deleting_administrator
+     */
     public function test_exception_adding_check() {
         global $CFG;
 
