@@ -52,6 +52,7 @@ script:
 jobs:
   include:
     - stage: deploy
+      script: false
       before_deploy:
         - cd "$TRAVIS_REPO_SLUG"
         - git stash --all
