@@ -22,7 +22,7 @@
  * @package     tool_apisiteadmins
  */
 
-defined("MOODLE_INTERNAL") || die();
+defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = "tool_apisiteadmins";
 $plugin->maturity  = MATURITY_STABLE;

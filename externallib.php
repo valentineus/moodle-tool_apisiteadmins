@@ -22,7 +22,7 @@
  * @package     tool_apisiteadmins
  */
 
-defined("MOODLE_INTERNAL") || die();
+defined('MOODLE_INTERNAL') || die();
 
 require_once(__DIR__ . "/lib.php");
 

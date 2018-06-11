@@ -22,7 +22,7 @@
  * @package     tool_apisiteadmins
  */
 
-defined("MOODLE_INTERNAL") || die();
+defined('MOODLE_INTERNAL') || die();
 
 $functions = array(
     "tool_apisiteadmins_add_to_administrators" => array(

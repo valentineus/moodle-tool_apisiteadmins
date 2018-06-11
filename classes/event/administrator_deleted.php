@@ -24,7 +24,7 @@
 
 namespace tool_apisiteadmins\event;
 
-defined("MOODLE_INTERNAL") || die();
+defined('MOODLE_INTERNAL') || die();
 
 /**
  * Defines how to work with events.
