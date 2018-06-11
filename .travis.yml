@@ -1,13 +1,16 @@
 language: php
 
+os: "linux"
+php: 7.2
 sudo: false
 
-os: "linux"
-
-php: 7.2
+addons:
+  postgresql: "10"
 
 env:
+  - DB=mysqli MOODLE_BRANCH=MOODLE_34_STABLE
   - DB=mysqli MOODLE_BRANCH=MOODLE_35_STABLE
+  - DB=pgsql MOODLE_BRANCH=MOODLE_34_STABLE
   - DB=pgsql MOODLE_BRANCH=MOODLE_35_STABLE
 
 before_install:
