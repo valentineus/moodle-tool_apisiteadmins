@@ -1,5 +1,9 @@
 # Advanced API administration management
 
+[![GitHub Release](https://img.shields.io/github/release/valentineus/moodle-tool_apisiteadmins.svg)](https://github.com/valentineus/moodle-tool_apisiteadmins/releases)
+[![Build Status](https://travis-ci.org/valentineus/moodle-tool_apisiteadmins.svg?branch=master)](https://travis-ci.org/valentineus/moodle-tool_apisiteadmins)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/eea97c9ae1f54cc0ac7cb6f53966b98c)](https://www.codacy.com/app/valentineus/moodle-tool_apisiteadmins)
+
 The plug-in extends and complements the system API for managing administrators.
 Main library is well documented and tested.
 Can be used by third-party developers for development.
