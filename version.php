@@ -26,6 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = "tool_apisiteadmins";
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = "1.0.0 (Build: 2018061100)";
+$plugin->release   = "v1.0.0 (Build: 2018061100)";
 $plugin->requires  = 2015050500;
 $plugin->version   = 2018061100;
